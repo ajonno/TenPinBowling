@@ -11,7 +11,12 @@ namespace TenPinBowling
 		int _numberOfBallsRolled;
 		int[] _rollScores = new int[3];
 
-		public bool IsLastRoll { get; set; }
+		public bool IsLastRoll {
+			get
+			{
+				return (_numberOfBallsRolled == 2);
+			}
+		}
 
 		public bool IsStrike {
 			get {
@@ -29,7 +34,7 @@ namespace TenPinBowling
 		public bool IsOpen {
 			get
 			{
-				return false;
+				return (_rollScores[0] + _rollScores[1] < 10);
 			}
 		}
 
