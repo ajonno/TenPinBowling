@@ -22,7 +22,7 @@ namespace TenPinBowling
 		public bool IsSpare {
 			get
 			{
-				return false;
+				return (_rollScores[0] + _rollScores[1] == 10);
 			}
 		}
 
@@ -56,6 +56,7 @@ namespace TenPinBowling
 			set {
 				_score = value;
 				_rollScores[_numberOfBallsRolled] = _score;
+				_numberOfBallsRolled++;
 			}
 		}
 

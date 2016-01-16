@@ -50,10 +50,23 @@ namespace TenPinBowlingTests
 			game.Roll(10);
 
 			Assert.AreEqual(10, game.Score);
-			Assert.AreEqual(true, frame.IsStrike);
+			Assert.AreEqual(true, frame.IsStrike && !frame.IsComplete);
 		}
 
+		[TestMethod]
+		public void RollA_6_ThenA_4_IsASpare()
+		{
+			game.Roll(6);
+			game.Roll(4);
 
+			Assert.AreEqual(10, game.Score);
+
+			var frame = new Frame();
+			frame.Score = 6;
+			frame.Score = 4;
+
+			Assert.AreEqual(true, frame.IsSpare && !frame.IsComplete);
+		}
 
 
 	}
