@@ -18,11 +18,18 @@ namespace TenPinBowlingTests
 			}
 		}
 
-
 		[TestMethod]
 		public void DidntHitASinglePinTheWholeGame()
 		{
 			RollManyTimes(10, 0);
+		}
+
+		[TestMethod]
+		public void SingleRollShouldReturn_5()
+		{
+			game.Roll(5);
+
+			Assert.AreEqual(5, game.Score);
 		}
 	}
 }

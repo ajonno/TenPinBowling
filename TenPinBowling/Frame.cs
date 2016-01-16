@@ -8,7 +8,7 @@ namespace TenPinBowling
 {
 	public class Frame
 	{
-		int _ballsRolledThisFrame;
+		int _numberOfBallsRolled;
 		int[] _rollScores = new int[3];
 
 		public bool IsLastRoll { get; set; }
@@ -44,6 +44,23 @@ namespace TenPinBowling
 		{
 
 		}
+
+		private int _score;
+		public int Score
+		{
+			get {
+				_score = _rollScores.Sum();
+				return _score;
+
+			}
+			set {
+				_score = value;
+				_rollScores[_numberOfBallsRolled] = _score;
+			}
+		}
+
+
+
 
 		public void BonusPoint(int rollScore)
 		{
