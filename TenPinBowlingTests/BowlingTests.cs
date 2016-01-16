@@ -45,7 +45,7 @@ namespace TenPinBowlingTests
 			frame.Score = 7;
 			Assert.AreEqual(true, frame.IsOpen);
 			Assert.AreEqual(true, frame.IsLastRoll);
-			Assert.AreEqual(false, frame.IsComplete);
+			Assert.AreEqual(true, frame.IsComplete);
 		}
 
 		[TestMethod]
@@ -78,7 +78,19 @@ namespace TenPinBowlingTests
 			Assert.AreEqual(false, frame.IsComplete);
 		}
 
+		[TestMethod]
+		public void RollA_6_Then_4_Then_2_CompletesTheFrameScore()
+		{
+			var frame = new Frame();
+			frame.Score = 6;
+			frame.Score = 4;
+			frame.Score = 2;
 
+			Assert.AreEqual(true, frame.IsSpare);
+			Assert.AreEqual(true, frame.IsComplete);
+			Assert.AreEqual(12, frame.Score);
+		}
 
 	}
+
 }

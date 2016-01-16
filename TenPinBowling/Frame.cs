@@ -41,7 +41,15 @@ namespace TenPinBowling
 		public bool IsComplete {
 			get
 			{
-				return false;
+				bool isComplete = false;
+				if (IsStrike || IsSpare && _numberOfBallsRolled == 3)
+					isComplete = true;
+				else if (IsOpen && IsLastRoll)
+					isComplete = true;
+				else
+					isComplete = false;
+
+				return isComplete;
 			}
 		}
 
@@ -63,14 +71,6 @@ namespace TenPinBowling
 				_rollScores[_numberOfBallsRolled] = _score;
 				_numberOfBallsRolled++;
 			}
-		}
-
-
-
-
-		public void BonusPoint(int rollScore)
-		{
-
 		}
 
 
