@@ -3,8 +3,7 @@
 	public class Game
 	{
 
-
-		public void Roll()
+		public void Roll(int numberOfPinsHit)
 		{
 
 		}
