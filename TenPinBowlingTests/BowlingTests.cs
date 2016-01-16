@@ -22,6 +22,7 @@ namespace TenPinBowlingTests
 		public void DidntHitASinglePinTheWholeGame()
 		{
 			RollManyTimes(10, 0);
+			Assert.AreEqual(0, game.Score);
 		}
 
 		[TestMethod]
@@ -91,6 +92,39 @@ namespace TenPinBowlingTests
 			Assert.AreEqual(12, frame.Score);
 		}
 
+		[TestMethod]
+		public void RollA_STRIKE_Then_4_Then_2_CompletesTheFrameScore()
+		{
+			var frame = new Frame();
+			frame.Score = 10;
+			frame.Score = 4;
+			frame.Score = 2;
+
+			Assert.AreEqual(true, frame.IsStrike);
+			Assert.AreEqual(true, frame.IsComplete);
+			Assert.AreEqual(16, frame.Score);
+		}
+
+		[TestMethod]
+		public void RollA_STRIKE_then_STRIKE_then_2()
+		{
+			var frame = new Frame();
+			frame.Score = 10;
+			frame.Score = 10;
+			frame.Score = 2;
+
+			Assert.AreEqual(true, frame.IsStrike);
+			Assert.AreEqual(true, frame.IsComplete);
+			Assert.AreEqual(22, frame.Score);
+		}
+
+		[TestMethod]
+		public void PerfectScoreIs300()
+		{
+			RollManyTimes(22, 10);
+
+			Assert.AreEqual(300, game.Score);
+		}
 	}
 
 }

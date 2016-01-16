@@ -53,18 +53,12 @@ namespace TenPinBowling
 			}
 		}
 
-		public void UpdateScore(int rollScore)
-		{
-
-		}
-
 		private int _score;
 		public int Score
 		{
 			get {
 				_score = _rollScores.Sum();
 				return _score;
-
 			}
 			set {
 				_score = value;
@@ -72,8 +66,5 @@ namespace TenPinBowling
 				_numberOfBallsRolled++;
 			}
 		}
-
-
-
 	}
 }
