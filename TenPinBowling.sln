@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenPinBowling", "TenPinBowling\TenPinBowling.csproj", "{4FBA715D-8275-4A05-8265-5AF84214743A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenPinBowlingTests", "TnPinBowlingTests\TenPinBowlingTests.csproj", "{C03E11BC-957B-489B-AC7A-9D3C1663333C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{4FBA715D-8275-4A05-8265-5AF84214743A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FBA715D-8275-4A05-8265-5AF84214743A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FBA715D-8275-4A05-8265-5AF84214743A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C03E11BC-957B-489B-AC7A-9D3C1663333C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C03E11BC-957B-489B-AC7A-9D3C1663333C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C03E11BC-957B-489B-AC7A-9D3C1663333C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C03E11BC-957B-489B-AC7A-9D3C1663333C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
