@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TenPinBowling;
 
-namespace TnPinBowlingTests
+namespace TenPinBowlingTests
 {
 	[TestClass]
 	public class TenPinBowlingTests
