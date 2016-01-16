@@ -15,7 +15,7 @@ namespace TenPinBowling
 
 		public bool IsStrike {
 			get {
-				return false;
+				return _rollScores[0] == 10;
 			}
 		}
 

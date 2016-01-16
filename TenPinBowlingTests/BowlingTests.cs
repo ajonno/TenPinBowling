@@ -31,5 +31,30 @@ namespace TenPinBowlingTests
 
 			Assert.AreEqual(5, game.Score);
 		}
+
+		[TestMethod]
+		public void TwoRollsShouldTotal_8()
+		{
+			game.Roll(5);
+			game.Roll(3);
+
+			Assert.AreEqual(8, game.Score);
+		}
+
+		[TestMethod]
+		public void RollATenIsAStrike()
+		{
+			var frame = new Frame();
+			frame.Score = 10;
+
+			game.Roll(10);
+
+			Assert.AreEqual(10, game.Score);
+			Assert.AreEqual(true, frame.IsStrike);
+		}
+
+
+
+
 	}
 }
