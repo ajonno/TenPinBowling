@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenPinBowling", "TenPinBowling\TenPinBowling.csproj", "{4FBA715D-8275-4A05-8265-5AF84214743A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TnPinBowlingTests", "TnPinBowlingTests\TnPinBowlingTests.csproj", "{C03E11BC-957B-489B-AC7A-9D3C1663333C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenPinBowlingTests", "TnPinBowlingTests\TenPinBowlingTests.csproj", "{C03E11BC-957B-489B-AC7A-9D3C1663333C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
