@@ -41,19 +41,19 @@ namespace TenPinBowlingTests
 
 			Assert.AreEqual(9, game.Score);
 
-			var frame = new Frame();
-			frame.Score = 2;
-			frame.Score = 7;
+			/*var frame = new Frame();
+			frame.AddScore = 2;
+			frame.AddScore = 7;
 			Assert.AreEqual(true, frame.IsOpen);
 			Assert.AreEqual(true, frame.IsLastRoll);
-			Assert.AreEqual(true, frame.IsComplete);
+			Assert.AreEqual(true, frame.IsComplete);*/
 		}
 
 		[TestMethod]
 		public void RollATenIsAStrike()
 		{
 			var frame = new Frame();
-			frame.Score = 10;
+			frame.AddScore = 10;
 
 			game.Roll(10);
 
@@ -71,8 +71,8 @@ namespace TenPinBowlingTests
 			Assert.AreEqual(10, game.Score);
 
 			var frame = new Frame();
-			frame.Score = 6;
-			frame.Score = 4;
+			frame.AddScore = 6;
+			frame.AddScore = 4;
 
 			Assert.AreEqual(true, frame.IsSpare);
 			Assert.AreEqual(true, frame.IsLastRoll);
@@ -83,48 +83,133 @@ namespace TenPinBowlingTests
 		public void RollA_6_Then_4_Then_2_CompletesTheFrameScore()
 		{
 			var frame = new Frame();
-			frame.Score = 6;
-			frame.Score = 4;
-			frame.Score = 2;
+			frame.AddScore = 6;
+			frame.AddScore = 4;
+			frame.AddScore = 2;
 
 			Assert.AreEqual(true, frame.IsSpare);
 			Assert.AreEqual(true, frame.IsComplete);
-			Assert.AreEqual(12, frame.Score);
+			Assert.AreEqual(12, frame.AddScore);
 		}
 
 		[TestMethod]
 		public void RollA_STRIKE_Then_4_Then_2_CompletesTheFrameScore()
 		{
 			var frame = new Frame();
-			frame.Score = 10;
-			frame.Score = 4;
-			frame.Score = 2;
+			frame.AddScore = 10;
+			frame.AddScore = 4;
+			frame.AddScore = 2;
 
 			Assert.AreEqual(true, frame.IsStrike);
 			Assert.AreEqual(true, frame.IsComplete);
-			Assert.AreEqual(16, frame.Score);
+			Assert.AreEqual(16, frame.AddScore);
 		}
 
 		[TestMethod]
 		public void RollA_STRIKE_then_STRIKE_then_2()
 		{
 			var frame = new Frame();
-			frame.Score = 10;
-			frame.Score = 10;
-			frame.Score = 2;
+			frame.AddScore = 10;
+			frame.AddScore = 10;
+			frame.AddScore = 2;
 
 			Assert.AreEqual(true, frame.IsStrike);
 			Assert.AreEqual(true, frame.IsComplete);
-			Assert.AreEqual(22, frame.Score);
+			Assert.AreEqual(22, frame.AddScore);
+		}
+
+		/*[TestMethod]
+		public void PerfectScoreIs300()
+		{
+			RollManyTimes(12, 10);
+
+			Assert.AreEqual(300, game.Score);
+		}*/
+
+		[TestMethod]
+		public void CheckThatFrameCounterIncrementsCorrectlyForOpenFrame()
+		{
+			game.Roll(3);
+			game.Roll(4);
+
+			game.Roll(2);
+			Assert.AreEqual(2, game.GetFrameNumber);
+
+			//game.Roll(1);
+			//Assert.AreEqual(2, game.GetFrameNumber);
+
+			/*game.Roll(8);
+			game.Roll(1);
+			Assert.AreEqual(3, game.GetFrameNumber);
+
+			game.Roll(8);
+			Assert.AreEqual(4, game.GetFrameNumber);
+			*/
 		}
 
 		[TestMethod]
-		public void PerfectScoreIs300()
+		public void CheckThatFrameCounterIncrementsCorrectlyForSpareFrame()
 		{
-			RollManyTimes(22, 10);
+			game.Roll(7);
+			game.Roll(3);
 
-			Assert.AreEqual(300, game.Score);
+			game.Roll(6);
+			Assert.AreEqual(2, game.GetFrameNumber);
+
+			game.Roll(1);
+			Assert.AreEqual(3, game.GetFrameNumber);
+
+			game.Roll(0);
+			game.Roll(0);
+			Assert.AreEqual(4, game.GetFrameNumber);
 		}
+
+		[TestMethod]
+		public void CheckThatFrameCounterIncrementsCorrectlyForStrikeFrame()
+		{
+			game.Roll(10);
+
+			game.Roll(4);
+			game.Roll(2);	//completed 2nd frame
+
+			Assert.AreEqual(3, game.GetFrameNumber);
+
+			game.Roll(2);
+			game.Roll(0);  //completed 3rd frame 
+
+			game.Roll(8);
+			game.Roll(1);	
+
+			Assert.AreEqual(5, game.GetFrameNumber);
+		}
+
+		[TestMethod]
+		public void CheckScore_Roll_STRIKE_6_2()
+		{
+			game.Roll(10);
+
+			game.Roll(6);
+			game.Roll(2);
+
+			Assert.AreEqual(26, game.Score);
+		}
+
+		[TestMethod]
+		public void CheckScore_Roll_STRIKE_STRIKE_6_4_3_2()
+		{
+			game.Roll(10);
+
+			game.Roll(10);
+
+			game.Roll(6);
+			game.Roll(4);
+
+			game.Roll(3);
+			game.Roll(2);
+
+			Assert.AreEqual(64, game.Score);
+		}
+
 	}
 
 }

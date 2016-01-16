@@ -8,13 +8,13 @@ namespace TenPinBowling
 {
 	public class Frame
 	{
-		int _numberOfBallsRolled;
+		int _numberOfBallsRolled = 0;
 		int[] _rollScores = new int[3];
 
 		public bool IsLastRoll {
 			get
 			{
-				return (_numberOfBallsRolled == 2);
+				return (_numberOfBallsRolled == 2 || IsStrike);
 			}
 		}
 
@@ -27,42 +27,53 @@ namespace TenPinBowling
 		public bool IsSpare {
 			get
 			{
-				return (_rollScores[0] + _rollScores[1] == 10);
+				return ( (_rollScores[0] + _rollScores[1] == 10) && !IsStrike);
 			}
 		}
 
 		public bool IsOpen {
 			get
 			{
-				return (_rollScores[0] + _rollScores[1] < 10);
+				//return (_rollScores[0] + _rollScores[1] < 10);
+				return (_numberOfBallsRolled == 2 && (_rollScores[0] + _rollScores[1] < 10));
 			}
 		}
 
+		private bool _isComplete;
 		public bool IsComplete {
 			get
 			{
-				bool isComplete = false;
-				if (IsStrike || IsSpare && _numberOfBallsRolled == 3)
-					isComplete = true;
+				//if ( (IsStrike || IsSpare) && _numberOfBallsRolled == 3)
+				if ((IsStrike || IsSpare) && _numberOfBallsRolled == 3)
+						_isComplete = true;
 				else if (IsOpen && IsLastRoll)
-					isComplete = true;
-				else
-					isComplete = false;
+					_isComplete = true;
+				if (_numberOfBallsRolled == 3)
+					_isComplete = true;
 
-				return isComplete;
+				return _isComplete;
 			}
 		}
 
-		private int _score;
-		public int Score
+		private int myVar;
+
+		public int MyProperty
+		{
+			get { return myVar; }
+			set { myVar = value; }
+		}
+
+
+		private int _addScore;
+		public int AddScore
 		{
 			get {
-				_score = _rollScores.Sum();
-				return _score;
+				_addScore = _rollScores.Sum();
+				return _addScore;
 			}
 			set {
-				_score = value;
-				_rollScores[_numberOfBallsRolled] = _score;
+				_addScore = value;
+				_rollScores[_numberOfBallsRolled] = _addScore;
 				_numberOfBallsRolled++;
 			}
 		}
