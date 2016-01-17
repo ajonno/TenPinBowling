@@ -2,7 +2,9 @@
 
 Firstly many thanks for the opportunity to do this coding test. 
 
-I must say that I really enjoyed this particular code challenge, for a number of reasons.
+Both the required and the optional tasks were completed.
+
+I really enjoyed this particular code challenge, for a number of reasons.
 
 The task itself was simple in concept although like many coding exercises there can be a number of ways you can go about getting to the end result. Handling the look forward/look back scoring process I found the most challenging in terms of, how to architect the app. The most challenging aspect for me, was in terms of keeping the code lean and expressive whilst also managing the required in app state. I dont pretend for a second that what I am presenting here is the ultimate approach. I never ever(!) assume and generally am always looking for a better/more efficient/practical/maintainable way - for me that's one of the beauties of software development.  That being so I do obviously hope that I've gone as close as I can to satisfying what you are looking for here. 
 
