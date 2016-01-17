@@ -12,15 +12,13 @@ namespace TenPinBowling
 		{
 			var game = new Game();
 
-			game.Roll(10);
+			for (int roll = 0; roll < 22; roll++)
+			{
+				game.Roll(10);
+			}
 
-			game.Roll(8);
-			game.Roll(2);
+			Console.WriteLine($"Game Score: {game.Score()}");
 
-			game.Roll(3);
-
-			Console.WriteLine(game.Score());
-			
 			Console.ReadLine();
 		}
 	}

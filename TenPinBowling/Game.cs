@@ -8,7 +8,6 @@ namespace TenPinBowling
 		private List<Frame> _frames;
 		private Frame _frame;
 		
-
 		public Game()
 		{
 			_frames = new List<Frame>();
@@ -36,9 +35,6 @@ namespace TenPinBowling
 				_frame = new Frame();
 				_frames.Add(_frame);
 			}
-
-			//if (_frames.Count == 9 && _frame.IsComplete)
-			//	System.Console.WriteLine("Thank you for playing."); 
 		}
 
 		private int GetFrameIndex {
@@ -66,21 +62,6 @@ namespace TenPinBowling
 				return _frames.IndexOf(frame) < _frames.Count - 1;
 		}
 
-		/*private int _score;
-		public int Score
-		{
-			get {
-				foreach (var frame in _frames)
-				{
-					_score += frame.AddScore;
-				}
-				return _score;
-			}
-			set {
-				_score = value;
-			}
-		}*/
-
 		public int Score()
 		{
 			int score = 0;
@@ -90,8 +71,5 @@ namespace TenPinBowling
 			}
 			return score;
 		}
-
-
-
 	}
 }

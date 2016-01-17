@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace TenPinBowling
 {
@@ -34,7 +30,6 @@ namespace TenPinBowling
 		public bool IsOpen {
 			get
 			{
-				//return (_rollScores[0] + _rollScores[1] < 10);
 				return (_numberOfBallsRolled == 2 && (_rollScores[0] + _rollScores[1] < 10));
 			}
 		}
@@ -43,20 +38,15 @@ namespace TenPinBowling
 		public bool IsComplete {
 			get
 			{
-				//if ( (IsStrike || IsSpare) && _numberOfBallsRolled == 3)
 				if ((IsStrike || IsSpare) && _numberOfBallsRolled == 3)
 						_isComplete = true;
 				else if (IsOpen && IsLastRoll)
 					_isComplete = true;
 
-				//if (_numberOfBallsRolled == 3)
-				//	_isComplete = true;
-
 				return _isComplete;
 			}
 		}
 
-	
 		private int _addScore;
 		public int AddScore
 		{
