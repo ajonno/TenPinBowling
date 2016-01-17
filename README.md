@@ -12,7 +12,7 @@ I also love the TDD approach and all I'll say, is "what's not to love!". Aside f
 
 Lastly, I did deliberately leave out code comments in this instance so you could simply focus on the code for review. I know that VS has comment folding etc. but nonetheless I still went ahead in this manner, for this particular test. Hope that is ok. 
 
-The app was written in C#, using Visual Studio 2015 (Update 1). Note that there's some placeholder code in Program.cs for testing to the console if needed.
+The app was written in C# (Console app), using Visual Studio 2015 (Update 1). Note that there's some placeholder code in Program.cs for testing to the console if needed.
 
 Thanks again and I do hope I'll have the opportunity to work with DiUS in the near future.
 
