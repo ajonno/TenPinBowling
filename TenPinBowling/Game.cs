@@ -18,59 +18,58 @@ namespace TenPinBowling
 
 		public void Roll(int numberOfPinsHit)
 		{
-			if (_frames.Count < 10)
+			IncrementFrame();
+
+			if (_frames.Count <= 10)
+			{
 				_frame.AddScore = numberOfPinsHit;
+			}
 
 			if (_frames.Count > 1)
 				LookBack(numberOfPinsHit);
-
-			if (_frame.IsLastRoll)
-				IncrementFrame();
-
-
 		}
 
 		private void IncrementFrame()
 		{
-			if (_frames.Count < 10 && _frame.IsLastRoll)
+			if (_frames.Count <= 10 && _frame.IsLastRoll)
 			{
-				_frame = null;
 				_frame = new Frame();
 				_frames.Add(_frame);
 			}
 
-			if (_frames.Count == 10 && _frame.IsComplete)
-				System.Console.WriteLine("Thank you for playing."); 
+			//if (_frames.Count == 9 && _frame.IsComplete)
+			//	System.Console.WriteLine("Thank you for playing."); 
 		}
 
-		public int GetFrameNumber {
+		private int GetFrameIndex {
 			get
 			{
-				return _frames.Count;
+				return _frames.Count - 1;
 			}
 		}
 
 		private void LookBack(int numberOfPinsHit)
 		{
-			//linq query to get any frames that have open status
-			var incompleteFrames = from frame in _frames
-									where !frame.IsComplete && (frame.IsSpare || frame.IsStrike)
+			//get any PREVIOUS strike or spare Frame(s), that should be updated with this rolls num. pins 
+			var bonusFrames = from frame in _frames
+									where !frame.IsComplete && (frame.IsSpare || frame.IsStrike) && IsPreviousFrame(frame)
 									select frame;
 
-			foreach (var frame in incompleteFrames)
+			foreach (var frame in bonusFrames)
 			{
 				if (frame.IsComplete == false)
 					frame.AddScore = numberOfPinsHit;
 			}
-
-
 		}
 
-		private int _score;
+		private bool IsPreviousFrame(Frame frame) {
+				return _frames.IndexOf(frame) < _frames.Count - 1;
+		}
+
+		/*private int _score;
 		public int Score
 		{
 			get {
-				//var total = 0;
 				foreach (var frame in _frames)
 				{
 					_score += frame.AddScore;
@@ -80,6 +79,16 @@ namespace TenPinBowling
 			set {
 				_score = value;
 			}
+		}*/
+
+		public int Score()
+		{
+			int score = 0;
+			foreach (var frame in _frames)
+			{
+				score += frame.AddScore;
+			}
+			return score;
 		}
 
 

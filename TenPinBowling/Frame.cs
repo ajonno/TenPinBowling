@@ -48,22 +48,15 @@ namespace TenPinBowling
 						_isComplete = true;
 				else if (IsOpen && IsLastRoll)
 					_isComplete = true;
-				if (_numberOfBallsRolled == 3)
-					_isComplete = true;
+
+				//if (_numberOfBallsRolled == 3)
+				//	_isComplete = true;
 
 				return _isComplete;
 			}
 		}
 
-		private int myVar;
-
-		public int MyProperty
-		{
-			get { return myVar; }
-			set { myVar = value; }
-		}
-
-
+	
 		private int _addScore;
 		public int AddScore
 		{
@@ -74,7 +67,9 @@ namespace TenPinBowling
 			set {
 				_addScore = value;
 				_rollScores[_numberOfBallsRolled] = _addScore;
-				_numberOfBallsRolled++;
+				if (_numberOfBallsRolled < 3)
+					_numberOfBallsRolled++;
+					
 			}
 		}
 	}
