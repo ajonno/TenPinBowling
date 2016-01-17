@@ -48,8 +48,9 @@ namespace TenPinBowling
 		{
 			//get any PREVIOUS strike or spare Frame(s), that should be updated with this rolls num. pins 
 			var bonusFrames = from frame in _frames
-									where !frame.IsComplete && (frame.IsSpare || frame.IsStrike) && IsPreviousFrame(frame)
-									select frame;
+							  where !frame.IsComplete 
+							  && (frame.IsSpare || frame.IsStrike) && IsPreviousFrame(frame)
+							  select frame;
 
 			foreach (var frame in bonusFrames)
 			{
@@ -59,7 +60,7 @@ namespace TenPinBowling
 		}
 
 		private bool IsPreviousFrame(Frame frame) {
-				return _frames.IndexOf(frame) < _frames.Count - 1;
+			return _frames.IndexOf(frame) < _frames.Count - 1;
 		}
 
 		public int Score()
