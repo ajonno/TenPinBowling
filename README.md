@@ -8,6 +8,8 @@ The task itself was simple in concept although like many coding exercises there 
 
 I also love the TDD approach and all I'll say, is "what's not to love!". Aside from the obvious best practices re the dev workflow/lifecycle, for me it's just quite addictive and I reckon it almost "gamifies" app development :-)  You can see my Git commit flow, where I checked in after each successful test. I do know, that I can improve in this area. It's something I very much hope DiUS can help me with via ongoing coaching & advice.
 
+Lastly, I did deliberately leave out code comments in this instance so you could simply focus on the code for review. I know that VS has comment folding etc. but nonetheless I still went ahead in this manner, for this particular test. Hope that is ok. 
+
 The app was written in C#, using Visual Studio 2015 (Update 1). Note that there's some placeholder code in Program.cs for testing to the console if needed.
 
 Thanks again and I do hope I'll have the opportunity to work with DiUS in the near future.
