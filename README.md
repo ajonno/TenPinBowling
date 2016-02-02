@@ -1,6 +1,6 @@
 # TenPinBowling
 
-This app was written in C# (Console app), using Visual Studio 2015 (Update 1). Note that there's some placeholder code in Program.cs for testing to the console if needed.
+This app was written in C# (Console app), using Visual Studio 2015 (Update 1), .Net 4.5.2. Note that there's some placeholder code in Program.cs for testing to the console if needed.
 
 TASK:
 To help with the club, we have engaged you to program a scoring system.
